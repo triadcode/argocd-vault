@@ -78,7 +78,7 @@ kubectl logs -n schoolapp -f $(kubectl get pods --template '{{range .items}}{{.m
 Notice this output:
 Expected Output
 ```bash
-MongoDB Credentials Using Hardcoded Values that appear in GitLab: 
+MongoDB Credentials Using Hardcoded Values that appear in GitLab:
 Username = schoolapp
 Password = mongoRootPass
 ```
@@ -148,7 +148,7 @@ vault write auth/kubernetes/config \
 vault write auth/kubernetes/role/schoolapp \
     bound_service_account_names=schoolapp \
     bound_service_account_namespaces=schoolapp \
-    policies=schoolapp
+    policies=schoolapp \
     ttl=5s \
     max_ttl=20s
 ```
@@ -190,9 +190,9 @@ kubectl logs -n schoolapp -f $(kubectl get pods --template '{{range .items}}{{.m
 Notice this output:
 **Expected Output**
 ```
-MongoDB Credentials Using Vault KV with injector and templates for Vault unaware apps: 
+MongoDB Credentials Using Vault KV with injector and templates for Vault unaware apps:
 Username = schoolapp
 Password = mongoRootPass
 ```
 
-	
+
